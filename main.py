@@ -126,41 +126,41 @@ def run_exploit(exploit_name: str, target_host: str, target_port: int, payload: 
     
     return "\n".join(results)
 
-@mcp.tool()
-def scan_target(target: str, scan_type: str = "basic") -> str:
-    """
-    Scan a target using Metasploit's auxiliary scanners.
+# @mcp.tool()
+# def scan_target(target: str, scan_type: str = "basic") -> str:
+#     """
+#     Scan a target using Metasploit's auxiliary scanners.
     
-    Args:
-        target: Target IP or IP range (e.g., 192.168.1.1 or 192.168.1.0/24)
-        scan_type: Type of scan (basic, comprehensive, service)
+#     Args:
+#         target: Target IP or IP range (e.g., 192.168.1.1 or 192.168.1.0/24)
+#         scan_type: Type of scan (basic, comprehensive, service)
     
-    Returns:
-        Scan results
-    """
-    console_id = msf_client.consoles.console().get('id')
-    console = msf_client.consoles.console(console_id)
+#     Returns:
+#         Scan results
+#     """
+#     console_id = msf_client.consoles.console().get('id')
+#     console = msf_client.consoles.console(console_id)
     
-    scan_modules = {
-        "basic": "auxiliary/scanner/portscan/tcp",
-        "comprehensive": "auxiliary/scanner/discovery/udp_sweep", 
-        "service": "auxiliary/scanner/discovery/udp_probe"
-    }
+#     scan_modules = {
+#         "basic": "auxiliary/scanner/portscan/tcp",
+#         "comprehensive": "auxiliary/scanner/discovery/udp_sweep", 
+#         "service": "auxiliary/scanner/discovery/udp_probe"
+#     }
     
-    module = scan_modules.get(scan_type.lower(), scan_modules["basic"])
+#     module = scan_modules.get(scan_type.lower(), scan_modules["basic"])
     
-    commands = [
-        f"use {module}",
-        f"set RHOSTS {target}",
-        "run"
-    ]
+#     commands = [
+#         f"use {module}",
+#         f"set RHOSTS {target}",
+#         "run"
+#     ]
     
-    results = []
-    for cmd in commands:
-        result = console.run_single_command(cmd)
-        results.append(result.get('data', ''))
+#     results = []
+#     for cmd in commands:
+#         result = console.run_single_command(cmd)
+#         results.append(result.get('data', ''))
     
-    return "\n".join(results)
+#     return "\n".join(results)
 
 @mcp.tool()
 def list_active_sessions() -> dict:
