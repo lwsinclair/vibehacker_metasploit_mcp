@@ -45,7 +45,7 @@ Before running the application, start the Metasploit RPC server:
 
 ```bash
 # Full configuration with all options
-msfrpcd -P your_password -S -a 127.0.0.1 -p 55553
+msfrpcd -P kalipassword -S -a 127.0.0.1 -p 55553
 ```
 
 Or use the simpler command to start the RPC server in the background on the default port (55553):
@@ -59,7 +59,7 @@ msfrpcd -P your_password
 Set the following environment variables:
 
 ```bash
-export MSF_PASSWORD=your_password
+export MSF_PASSWORD=kalipassword
 export MSF_SERVER=127.0.0.1
 export MSF_PORT=55553
 ```
@@ -69,13 +69,11 @@ export MSF_PORT=55553
 ```bash
 python main.py
 ```
-
-### Running Tests
-
+or to test the tools 
 ```bash
-python -m unittest main_test.py
+mcp dev main.py
 ```
-
+ 
 ## Features
 
 - List available Metasploit exploits
