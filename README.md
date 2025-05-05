@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/foolsec-vibehacker-metasploit-mcp-badge.png)](https://mseep.ai/app/foolsec-vibehacker-metasploit-mcp)
+
 # Vibehacker Metasploit MCP
 
 A FastMCP-based interface for Metasploit Framework, enabling AI agents to interact with Metasploit capabilities.
